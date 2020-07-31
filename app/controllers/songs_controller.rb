@@ -23,14 +23,14 @@ class SongsController < ApplicationController
 
   def update
     @genre = Genre.find(params[:id])
-    @genre.update(genre_params(:name, :bio))
-    redirect_to genre_path(@genre)
+    @genre.update(genre_params(:name, :artist_id, :genre_id))
+    redirect_to song_path(@song)
   end
 
   private
 
-  def genre_params(*args)
-    params.require(:genre).permit(*args)
+  def song_params(*args)
+    params.require(:song).permit(*args)
   end
 
 end
